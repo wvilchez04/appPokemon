@@ -1,6 +1,6 @@
 const pokemonContainer = document.querySelector(".pokemon-container");
 const formEl = document.querySelector("form");
-const inputEl = document.querySelector("input[type=text]");
+const inputEl = document.querySelector("button");
 console.log(inputEl);
 
 formEl.addEventListener("submit", (e) => {
@@ -8,6 +8,14 @@ formEl.addEventListener("submit", (e) => {
   pokemonContainer.innerHTML = "";
   getPokemon(inputEl.value);
 });
+function consultarPokemones(){
+  let primerId = Math.round(Math.random() * 150)
+  //let segundoId = Math.round(Math.random() * 150)
+
+  getPokemon(primerId, 1)
+ // consultarPokemon(segundoId, 2)
+}
+
 
 async function getPokemon(name = "bulbasaur") {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
