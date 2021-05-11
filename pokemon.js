@@ -1,6 +1,6 @@
 const pokemonContainer = document.querySelector(".pokemon-container");
 const formEl = document.querySelector("form");
-const inputEl = document.querySelector("button");
+const inputEl = document.querySelector("input[type=text]");
 console.log(inputEl);
 
 formEl.addEventListener("submit", (e) => {
@@ -15,7 +15,6 @@ function consultarPokemones(){
   getPokemon(primerId, 1)
  // consultarPokemon(segundoId, 2)
 }
-
 
 async function getPokemon(name = "bulbasaur") {
   const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
@@ -44,7 +43,7 @@ async function getPokemon(name = "bulbasaur") {
       .join("")}
     <div>
   `;
-
+  
   pokemonContainer.appendChild(pokemonEl);
 }
 
